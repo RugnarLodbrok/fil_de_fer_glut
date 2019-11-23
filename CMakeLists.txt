@@ -13,25 +13,20 @@ include_directories(headers)
 #target_link_libraries(<exe_name> LINK_PUBLIC ${FT})
 #---------------------------------------------------
 
-add_executable(fdf
-		#		src/line.c
-		src/main.c
-		src/hello_glut.c
-		src/glut_put_pixel.c
+include_directories(headers)
+include_directories(glut)
+include_directories(libft)
+add_library(mlx
 		src/mlx.c
 		src/mlx_image.c
 		src/mlx_hook.c
 		src/mlx_keys.c
 		)
-include_directories(headers)
-include_directories(glut)
-include_directories(libft)
-#add_compile_options(-framework OpenGL -framework AppKit)
-target_link_libraries(fdf
+add_executable(mlx_test
+		src/main.c
+		)
+target_link_libraries(mlx_test LINK_PRIVATE
+		mlx
 		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/glut/freeglut.lib
 		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/glut/freeglutd.lib
 		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/libft/cmake-build-debug/libft.lib)
-#		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/minilibx_macos/libmlx.a
-#		"-framework OpenGL"
-#		"-framework AppKit"
-#		)
