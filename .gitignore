@@ -5,3 +5,4 @@ cmake-build-debug
 *.lib
 *.exe
 */.DS_Store
+glut

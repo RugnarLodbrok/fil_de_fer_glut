@@ -15,11 +15,17 @@ include_directories(headers)
 
 add_executable(fdf
 		#		src/line.c
-		src/main.c)
+		src/main.c
+		src/hello_glut.c
+		src/glut_put_pixel.c
+		)
 include_directories(headers)
+include_directories(glut)
 include_directories(libft)
 #add_compile_options(-framework OpenGL -framework AppKit)
 target_link_libraries(fdf
+		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/glut/freeglut.lib
+		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/glut/freeglutd.lib
 		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/libft/cmake-build-debug/libft.lib)
 #		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/minilibx_macos/libmlx.a
 #		"-framework OpenGL"
