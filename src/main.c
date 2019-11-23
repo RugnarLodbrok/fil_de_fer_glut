@@ -26,7 +26,14 @@ void glut_put_pixel_example(int ac, char **av)
 
 static void loop_hook(void *p)
 {
-	ft_printf("loop!\n");
+//	ft_printf("loop!\n");
+}
+
+static void key_down_f(int keycode, void *p)
+{
+	if (keycode == KEY_ESC)
+		exit(0);
+	ft_printf("key down: %d\n", keycode);
 }
 
 int main(int argc, char **argv)
@@ -41,7 +48,7 @@ int main(int argc, char **argv)
 	mlx_pixel_put(win, 102, 102, 0x00FF00);
 	mlx_pixel_put(win, 103, 103, 0x0000FF);
 	mlx_loop_hook(mlx, loop_hook, 0);
+	mlx_hook(win, MLX_EVENT_KEY_PRESS, 0, key_down_f, 0);
 	mlx_loop(mlx);
-//	glut_put_pixel_example(argc, argv);
 	return 0;
 }
