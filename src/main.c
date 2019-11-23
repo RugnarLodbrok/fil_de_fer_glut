@@ -24,6 +24,11 @@ void glut_put_pixel_example(int ac, char **av)
 	glFlush();  // Render now
 }*/
 
+static void loop_hook(void *p)
+{
+	ft_printf("loop!\n");
+}
+
 int main(int argc, char **argv)
 {
 	void *mlx;
@@ -35,6 +40,7 @@ int main(int argc, char **argv)
 	mlx_pixel_put(win, 101, 101, 0xFF0000);
 	mlx_pixel_put(win, 102, 102, 0x00FF00);
 	mlx_pixel_put(win, 103, 103, 0x0000FF);
+	mlx_loop_hook(mlx, loop_hook, 0);
 	mlx_loop(mlx);
 //	glut_put_pixel_example(argc, argv);
 	return 0;
