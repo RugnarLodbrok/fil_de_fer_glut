@@ -74,6 +74,11 @@ void *mlx_new_window(t_mlx *mlx, int w, int h, const char *title)
 	return (win);
 }
 
+void mlx_string_put(t_mlx *mlx, t_mlx_win *win, int x, int y, uint color, const char *str)
+{
+
+}
+
 void mlx_loop(t_mlx *mlx)
 {
 	glutMainLoop();

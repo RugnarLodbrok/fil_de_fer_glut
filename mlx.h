@@ -65,5 +65,9 @@ void mlx_loop_hook(t_mlx *mlx, void (*loop_hook)(void *p), void *p);
 void mlx_hook(t_mlx_win *win, int event, int event_mask,
 			  void (*hook)(int keycode, void *p),
 			  void *p);
+void mlx_string_put(t_mlx *mlx, t_mlx_win *win, int x, int y, uint color, const char *str);
+t_mlx_image *mlx_new_image(t_mlx *mlx, int w, int h);
+uint *mlx_get_data_addr(t_mlx_image *image, int *bpp, int *row_len, int *en);
+void mlx_put_image_to_window(t_mlx *mlx, t_mlx_win *win, t_mlx_image *im, int x, int y);
 
 #endif
