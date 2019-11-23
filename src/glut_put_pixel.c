@@ -13,10 +13,11 @@ static void display()
 	glBegin(GL_POINTS);
 	glColor3f(1,1,1);
 	glVertex2i(100,100);
+	glVertex2i(101,101);
+	glVertex2i(102,102);
 	glEnd();
 	glFlush();  // Render now
 }
-
 
 /* Main function: GLUT runs as a console application starting at main()  */
 void glut_put_pixel_example(int ac, char **av)

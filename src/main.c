@@ -1,5 +1,6 @@
 #include "glut.h"
 #include "fdf.h"
+#include "mlx.h"
 /*
 void glut_put_pixel_example(int ac, char **av)
 {
@@ -25,6 +26,16 @@ void glut_put_pixel_example(int ac, char **av)
 
 int main(int argc, char **argv)
 {
-	glut_put_pixel_example(argc, argv);
+	void *mlx;
+	void *win;
+
+	mlx = mlx_init();
+	win = mlx_new_window(mlx, 800, 600, "HELLO MLX");
+	mlx_pixel_put(win, 100, 100, 0xFFFFFF);
+	mlx_pixel_put(win, 101, 101, 0xFF0000);
+	mlx_pixel_put(win, 102, 102, 0x00FF00);
+	mlx_pixel_put(win, 103, 103, 0x0000FF);
+	mlx_loop(mlx);
+//	glut_put_pixel_example(argc, argv);
 	return 0;
 }
