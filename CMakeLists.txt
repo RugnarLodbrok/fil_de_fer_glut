@@ -19,6 +19,9 @@ add_executable(fdf
 		src/hello_glut.c
 		src/glut_put_pixel.c
 		src/mlx.c
+		src/mlx_image.c
+		src/mlx_hook.c
+		src/mlx_keys.c
 		)
 include_directories(headers)
 include_directories(glut)

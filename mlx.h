@@ -37,6 +37,14 @@ typedef struct
 {
 	int w;
 	int h;
+	int bpp;
+	uint *data;
+} t_mlx_image;
+
+typedef struct
+{
+	int w;
+	int h;
 	uint *framebuffer;
 	t_mlx_hook *hooks;
 } t_mlx_win;
@@ -54,7 +62,8 @@ void *mlx_new_window(t_mlx *mlx, int w, int h, const char *title);
 void *mlx_init();
 void mlx_pixel_put(t_mlx_win *win, int x, int y, uint color);
 void mlx_loop_hook(t_mlx *mlx, void (*loop_hook)(void *p), void *p);
-void mlx_hook(t_mlx_win *win, int event, int event_mask, void (*hook)(int keycode, void *p),
+void mlx_hook(t_mlx_win *win, int event, int event_mask,
+			  void (*hook)(int keycode, void *p),
 			  void *p);
 
 #endif
