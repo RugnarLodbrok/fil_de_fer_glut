@@ -19,8 +19,7 @@ static void display_f()
 	{
 		for (j = 0; j < win->h; ++j)
 		{
-			if (!(color = M->win->framebuffer[win->w * j + i]))
-				continue;
+			color = M->win->framebuffer[win->w * j + i];
 			glColor4ubv((GLubyte *)&color);
 			glVertex2i(i, j);
 		}
