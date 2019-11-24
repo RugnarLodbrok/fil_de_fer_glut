@@ -1,22 +1,23 @@
+#include <stdlib.h>
 #include "mlx.h"
 
 t_mlx_image *mlx_new_image(t_mlx *mlx, int w, int h)
 {
 	t_mlx_image *im;
 
-	im = ft_memalloc(sizeof(t_mlx_image));
+	im = calloc(1, sizeof(t_mlx_image));
 	im->w = w;
 	im->h = h;
-	im->bpp = sizeof(uint) * 8;
+	im->bpp = sizeof(unsigned int) * 8;
 	im->data = malloc(im->bpp * w * h);
 	return im;
 }
 
-uint *mlx_get_data_addr(t_mlx_image *image, int *bpp, int *row_len, int *en)
+unsigned int *mlx_get_data_addr(t_mlx_image *image, int *bpp, int *row_len, int *en)
 {
 	*bpp = image->bpp;
 	*row_len = image->w;
-	*en = endian();
+	*en = 1234;
 	return image->data;
 }
 

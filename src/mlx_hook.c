@@ -14,8 +14,6 @@ static void timer_f(int value)
 
 void mlx_loop_hook(t_mlx *mlx, int (*loop_hook)(void *p), void *p)
 {
-	if (mlx->loop_hook)
-		ft_error_exit("loop hook called twice");
 	mlx->loop_hook = loop_hook;
 	mlx->loop_hook_p = p;
 	glutTimerFunc(17, timer_f, 0);

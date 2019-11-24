@@ -25,8 +25,9 @@ add_library(mlx
 add_executable(mlx_test
 		src/main.c
 		)
-target_link_libraries(mlx_test LINK_PRIVATE
-		mlx
+target_link_libraries(mlx_test
+		LINK_PRIVATE mlx
 		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/glut/freeglut.lib
 		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/glut/freeglutd.lib
-		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/libft/cmake-build-debug/libft.lib)
+#		LINK_PUBLIC ${CMAKE_SOURCE_DIR}/libft/cmake-build-debug/libft.lib
+		)

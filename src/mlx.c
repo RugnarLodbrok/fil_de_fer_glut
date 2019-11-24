@@ -2,7 +2,6 @@
 #include "mlx.h"
 #include "string.h"
 #include "stdlib.h"
-#include "libft.h"
 
 t_mlx *M;
 
@@ -10,7 +9,7 @@ static void display_f()
 {
 	int i;
 	int j;
-	uint color;
+	unsigned int color;
 	t_mlx_win *win;
 
 	win = M->win;
@@ -32,13 +31,13 @@ void *mlx_init()
 {
 	t_mlx *mlx;
 
-	mlx = ft_memalloc(sizeof(t_mlx));
+	mlx = calloc(1, sizeof(t_mlx));
 	M = mlx;
 	mlx_init_glut_key_map();
 	return mlx;
 }
 
-void mlx_pixel_put(t_mlx *mlx, t_mlx_win *win, int x, int y, uint color)
+void mlx_pixel_put(t_mlx *mlx, t_mlx_win *win, int x, int y, unsigned int color)
 {
 	win->framebuffer[win->w * y + x] = color;
 }
@@ -49,11 +48,11 @@ void *mlx_new_window(t_mlx *mlx, int w, int h, const char *title)
 	char **av;
 	t_mlx_win *win;
 
-	win = ft_memalloc(sizeof(t_mlx));
+	win = calloc(1, sizeof(t_mlx));
 	win->w = w;
 	win->h = h;
-	win->framebuffer = ft_memalloc(sizeof(int) * w * h);
-	win->hooks = ft_memalloc(sizeof(t_mlx_hook) * MLX_EVENTS_NUMBER);
+	win->framebuffer = calloc(w * h, sizeof(int));
+	win->hooks = calloc(MLX_EVENTS_NUMBER, sizeof(t_mlx_hook));
 	mlx->win = win;
 	ac = 0;
 	av = 0;
@@ -72,7 +71,7 @@ void *mlx_new_window(t_mlx *mlx, int w, int h, const char *title)
 	return (win);
 }
 
-void mlx_string_put(t_mlx *mlx, t_mlx_win *win, int x, int y, uint color, const char *str)
+void mlx_string_put(t_mlx *mlx, t_mlx_win *win, int x, int y, unsigned int color, const char *str)
 {
 
 }
