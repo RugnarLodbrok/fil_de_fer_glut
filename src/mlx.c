@@ -19,7 +19,7 @@ static void display_f()
 	{
 		for (j = 0; j < win->h; ++j)
 		{
-			color = M->win->framebuffer[win->w * j + i];
+			color = win->framebuffer[win->w * j + i];
 			glColor4ubv((GLubyte *)&color);
 			glVertex2i(i, j);
 		}
@@ -52,7 +52,7 @@ void *mlx_new_window(t_mlx *mlx, int w, int h, const char *title)
 	win = ft_memalloc(sizeof(t_mlx));
 	win->w = w;
 	win->h = h;
-	win->framebuffer = ft_memalloc(sizeof(int) * w * h);
+	win->framebuffer = ft_memalloc(sizeof(uint) * w * h);
 	win->hooks = ft_memalloc(sizeof(t_mlx_hook) * MLX_EVENTS_NUMBER);
 	mlx->win = win;
 	ac = 0;
