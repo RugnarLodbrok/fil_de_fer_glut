@@ -7,7 +7,7 @@ t_mlx_image *mlx_new_image(t_mlx *mlx, int w, int h)
 	im = ft_memalloc(sizeof(t_mlx_image));
 	im->w = w;
 	im->h = h;
-	im->bpp = sizeof(uint);
+	im->bpp = sizeof(uint) * 8;
 	im->data = malloc(im->bpp * w * h);
 	return im;
 }

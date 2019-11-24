@@ -1,4 +1,6 @@
+#include "string.h"
 #include "mlx.h"
+#include "glut.h"
 
 int keys_glut2mlx[256] = {
 		0, //000
@@ -202,3 +204,14 @@ int keys_glut2mlx[256] = {
 		0,
 		0,
 };
+
+int keys_special_glut2mlx[256];
+
+void mlx_init_glut_key_map()
+{
+	memset(keys_special_glut2mlx, 0,256);
+	keys_special_glut2mlx[GLUT_KEY_UP] = KEY_UP;
+	keys_special_glut2mlx[GLUT_KEY_DOWN] = KEY_DOWN;
+	keys_special_glut2mlx[GLUT_KEY_LEFT] = KEY_LEFT;
+	keys_special_glut2mlx[GLUT_KEY_RIGHT] = KEY_RIGHT;
+}

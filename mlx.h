@@ -52,16 +52,17 @@ typedef struct
 typedef struct
 {
 	t_mlx_win *win;
-	void (*loop_hook)(void *p);
+	int (*loop_hook)(void *p);
 	void *loop_hook_p;
 } t_mlx;
 
 
 void mlx_loop(t_mlx *mlx);
+void mlx_init_glut_key_map();
 void *mlx_new_window(t_mlx *mlx, int w, int h, const char *title);
 void *mlx_init();
-void mlx_pixel_put(t_mlx_win *win, int x, int y, uint color);
-void mlx_loop_hook(t_mlx *mlx, void (*loop_hook)(void *p), void *p);
+void mlx_pixel_put(t_mlx *mlx, t_mlx_win *win, int x, int y, uint color);
+void mlx_loop_hook(t_mlx *mlx, int (*loop_hook)(void *p), void *p);
 void mlx_hook(t_mlx_win *win, int event, int event_mask,
 			  void (*hook)(int keycode, void *p),
 			  void *p);

@@ -13,7 +13,6 @@ static void display_f()
 	uint color;
 	t_mlx_win *win;
 
-	ft_printf("display start... ");
 	win = M->win;
 	glBegin(GL_POINTS);
 	for (i = 0; i < win->w; ++i)
@@ -28,7 +27,6 @@ static void display_f()
 	}
 	glEnd();
 	glFlush();  // Render now
-	ft_printf("done\n");
 }
 
 void *mlx_init()
@@ -37,10 +35,11 @@ void *mlx_init()
 
 	mlx = ft_memalloc(sizeof(t_mlx));
 	M = mlx;
+	mlx_init_glut_key_map();
 	return mlx;
 }
 
-void mlx_pixel_put(t_mlx_win *win, int x, int y, uint color)
+void mlx_pixel_put(t_mlx *mlx, t_mlx_win *win, int x, int y, uint color)
 {
 	win->framebuffer[win->w * y + x] = color;
 }
