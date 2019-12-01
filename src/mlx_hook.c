@@ -60,7 +60,7 @@ static void cb_key_special_release(int key, int x, int y)
 }
 
 void mlx_hook(t_mlx_win *win, int event, int event_mask,
-			  void (*hook)(int keycode, void *p), void *p)
+			  int (*hook)(int keycode, void *p), void *p)
 {
 	t_mlx_hook *h;
 

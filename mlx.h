@@ -28,7 +28,7 @@
 typedef struct
 {
 	void *p;
-	void (*f)(int keycode, void *p);
+	int (*f)(int keycode, void *p);
 } t_mlx_hook;
 
 typedef struct
@@ -62,7 +62,7 @@ void *mlx_init();
 void mlx_pixel_put(t_mlx *mlx, t_mlx_win *win, int x, int y, unsigned int color);
 void mlx_loop_hook(t_mlx *mlx, int (*loop_hook)(void *p), void *p);
 void mlx_hook(t_mlx_win *win, int event, int event_mask,
-			  void (*hook)(int keycode, void *p),
+			  int (*hook)(int keycode, void *p),
 			  void *p);
 void mlx_string_put(t_mlx *mlx, t_mlx_win *win, int x, int y, unsigned int color, const char *str);
 t_mlx_image *mlx_new_image(t_mlx *mlx, int w, int h);
