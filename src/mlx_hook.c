@@ -11,14 +11,14 @@ static void timer_f(int value)
 {
 	M->loop_hook(M->loop_hook_p);
 	glutPostRedisplay();
-	glutTimerFunc(17, timer_f, 0);
+	glutTimerFunc(MLX_FRAME_TIME_MS, timer_f, 0);
 }
 
 void mlx_loop_hook(t_mlx *mlx, int (*loop_hook)(void *p), void *p)
 {
 	mlx->loop_hook = loop_hook;
 	mlx->loop_hook_p = p;
-	glutTimerFunc(17, timer_f, 0);
+	glutTimerFunc(MLX_FRAME_TIME_MS, timer_f, 0);
 }
 
 static void cb_key_press(unsigned char key, int x, int y)

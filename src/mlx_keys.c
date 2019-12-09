@@ -32,4 +32,6 @@ void mlx_init_glut_key_map()
 	glut2mlx_mouse_buttons[GLUT_LEFT_BUTTON] = MOUSE_B_LEFT;
 	glut2mlx_mouse_buttons[GLUT_RIGHT_BUTTON] = MOUSE_B_RIGHT;
 	glut2mlx_mouse_buttons[GLUT_MIDDLE_BUTTON] = MOUSE_B_MIDDLE;
+	glut2mlx_mouse_buttons[GLUT_SCROLL_UP] = MOUSE_SCROLL_UP;
+	glut2mlx_mouse_buttons[GLUT_SCROLL_DOWN] = MOUSE_SCROLL_DOWN;
 }

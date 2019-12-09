@@ -3,6 +3,9 @@
 
 # define bzero(b, len) (memset((b), '\0', (len)), (void) 0)
 # define MLX_FRAMERATE 60
+# define MLX_FRAME_TIME_MS ((int)(1000. / MLX_FRAMERATE + .5))
+# define GLUT_SCROLL_UP 3
+# define GLUT_SCROLL_DOWN 4
 
 typedef struct
 {
