@@ -75,6 +75,14 @@ void cb_mouse_event(int button, int state, int x, int y)
 	h->f(button, x, y, h->p);
 }
 
+void cb_mouse_move(int x, int y)
+{
+	t_mlx_hook *h;
+
+	h = &M->win->hooks[MLX_EVENT_MOUSE_MOVE];
+	h->f(x, y, h->p);
+}
+
 void mlx_hook(t_mlx_win *win, int event, int event_mask,
 			  int (*hook)(), void *p)
 {
@@ -100,4 +108,9 @@ void mlx_hook(t_mlx_win *win, int event, int event_mask,
 	if (event == MLX_EVENT_MOUSE_RELEASE)
 		if (!win->hooks[MLX_EVENT_MOUSE_PRESS].f)
 			glutMouseFunc(cb_mouse_event);
+	if (event == MLX_EVENT_MOUSE_MOVE)
+	{
+		glutMotionFunc(cb_mouse_move);
+		glutPassiveMotionFunc(cb_mouse_move);
+	}
 }
