@@ -6,7 +6,7 @@
 
 t_mlx *M;
 
-static void display_f()
+static void display_f(void)
 {
 	int i;
 	int j;
