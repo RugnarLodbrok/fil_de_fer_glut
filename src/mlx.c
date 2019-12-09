@@ -1,5 +1,6 @@
 #include <glut.h>
 #include "mlx.h"
+#include "mlx_consts.h"
 #include "string.h"
 #include "stdlib.h"
 
